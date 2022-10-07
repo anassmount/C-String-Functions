@@ -3,7 +3,7 @@ Assignment 2 readme File
 ------------------------------------------------------------------------
 What is your name?
 
-
+Anass Mountasser
 
 ------------------------------------------------------------------------
 What authorized sources of information did you use to complete the
@@ -11,6 +11,16 @@ assignment? COPY THE LIST of authorized sources of information given
 in the "Policies" web page (also available on armlab in the file
 ~cos217/AuthorizedSourcesList ) to this section of the readme file,
 and edit it as appropriate.
+
+The course's lectures.
+
+The course's precepts.
+
+The course's website.
+
+The course's textbooks.
+
+The man pages on the armlab cluster.
 
 
 
@@ -26,12 +36,13 @@ interaction, may additionally require the interaction being reported
 to the Committee on Discipline. Write "None" if you used no
 unauthorized sources of information.
 
-
+None
 
 ------------------------------------------------------------------------
 What is your assessment of the assignment? Was it helpful? Was it fun?
 
-
+It was extremely helpful in knowing about how to process strings,
+and I would say that it was definitely fun.
 
 ------------------------------------------------------------------------
 (optional) What information can you provide about your submission that
@@ -46,7 +57,7 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
-
+None.
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on stra.c, and what are your
@@ -54,7 +65,7 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
-
+None.
 
 ------------------------------------------------------------------------
 What warnings does splint generate on strp.c, and what are your
@@ -62,7 +73,7 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
-
+None.
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on strp.c, and what are your
@@ -70,7 +81,7 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
-
+None.
 
 ------------------------------------------------------------------------
 What warnings does splint generate on replace.c, and what are your
@@ -78,7 +89,7 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
-
+None.
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on replace.c, and what are your
@@ -86,13 +97,24 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
-
+None.
 
 ------------------------------------------------------------------------
 Is it possible for Str_copy or Str_concat to call assert to verify
 that the destination memory area specified by the caller is large
 enough? Explain.
 
-
-
+No, it would not be possible. This is because the array pointers passed
+only represent the starting point of each memory area. Even if one were
+to iterate through the destination array and increment a variable to
+keep track of its size, there is no way to know when the end of the
+memory will have been reached. Just because the pointer points to an
+array entry of the null character, it doesn't mean that that is the
+end. One would keep going past the null character, and might go past
+the destination memory, leading to unknown behavior. Even worse, the
+null character being present isn't required for a character array,
+so one would also potentially just go past the memory area, entering
+unknown territory and messing up with the results. This is because
+incrementing an array pointer past its end is possible, but serves no
+real purpose as one would not know that it has occured.
 ------------------------------------------------------------------------
